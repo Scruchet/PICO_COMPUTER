@@ -1,15 +1,16 @@
 # PICO Computer Project: Motherboard
 
-Welcome to the repository of our PICO Computer project. This section gathers all the source files written in the C language used by our motherboard, as well as the electronic part created with KiCad.
+Welcome to my PICO Computer project repository. This section consolidates all the source files written in the C language used by my motherboard, as well as the electronic components created with KiCad. The primary goal of this project is to create a motherboard that can be connected to other boards (screen, keyboard, network) to build a Pico Computer.
 
 ## Part 1: Motherboard
+You can find all the plans for my board in the **Motherboard_pico** directory.
 
-### Plans and Schematics
-You can find all the plans for our board in the **Motherboard_pico** directory.
+### Features
+This board is composed of multiple components. The main IC is the Atmega328p, which acts as the processor. The FTDI serves as the connection between the USB port and the Atmega328p (it does not include USB). The AT45DB641E is the storage component of the computer. As this component works with 3.3V signals, a buffer is needed to convert the 5V signals from the Atmega328p to 3.3V. To connect all the other cards, there are 5 HE10 connectors. All the different cards communicate using SPI (MOSI, MISO, SS, SCK).
 
 ## Part 2: Source Section (src)
 
-This section includes all the source files written in the C language used by our motherboard. In addition to the source files, we have also included a test folder to demonstrate various evaluations performed during the project's development.
+This section includes all the source files written in the C language used by my motherboard. In addition to the source files, there is also a test folder to demonstrate various evaluations performed during the project's development.
 
 ### Module Details
 
@@ -25,13 +26,16 @@ The Scheduler module includes files necessary for implementing a scheduler. Refe
 #### SPI
 The SPI module contains the files `spi.c` and `spi.h` for managing communication via the Serial Peripheral Interface (SPI) bus.
 
+#### UART
+The UART module includes the files `UART.c` and `UART.h`, dedicated to asynchronous serial communication (UART).
+
 #### Tests
 The Tests directory includes several subdirectories, each containing specific tests.
 
-- `7seg`: Tests related to 7-segment display.
-- `Mat_leds`: Tests for the LED matrix.
+- `7seg`: Tests related to the 7-segment display (https://www.sparkfun.com/products/11441).
+- `Mat_leds`: Tests for the LED matrix (https://www.sparkfun.com/products/retired/760).
 - `Mem`: Tests for memory management.
 - `UART_SPI`: Tests for UART and SPI modules.
 
-#### UART
-The UART module includes the files `UART.c` and `UART.h`, dedicated to asynchronous serial communication (UART).
+# Contact
+Thank you for visiting my project. If you have any comments or questions, please feel free to contact me via email at the following address: cruchetsimon@gmail.com
