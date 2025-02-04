@@ -29,7 +29,7 @@ unsigned char serialCheckRxComplete(void)
 
 unsigned char serialRead(void)
 {
-    while (serialCheckRxComplete() == 0) // While data is NOT available to read
+    while (!(UCSR0A & (1 << RXC0))) // While data is NOT available to read
     {
         ;
         ;
@@ -48,6 +48,7 @@ void serialInit(void)
     /* Frame format: 8data, No parity, 1stop bit */
     UCSR0C = (3 << UCSZ00);
 }
+
 
 // Permet d'afficher des chaines de caractères sur le bus UART
 //  int main(){
